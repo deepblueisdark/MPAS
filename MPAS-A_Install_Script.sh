@@ -11,11 +11,16 @@ START=$(date +"%s")
 #Estimated Run Time
 
 ##############################basic package managment#############################
-sudo apt -y update
-sudo apt -y upgrade
-sudo apt -y install gcc gfortran g++ libtool automake autoconf make m4 default-jre default-jdk csh ksh git python3 python3-dev python2 python2-dev mlocate curl cmake
+#---------------------------------  UBUNTu/DEBIAN 
+#sudo apt -y update
+#sudo apt -y upgrade
+#sudo apt -y install gcc gfortran g++ libtool automake autoconf make m4 default-jre default-jdk csh ksh git python3 python3-dev python2 python2-dev mlocate curl cmake
 
-#############################Core Management####################################
+############################      CENTOS / ROCKY #####################################
+sudo yum -y update
+sudo yum -y upgrade
+sudo yum -y install gcc gfortran g++ libtool automake autoconf make m4 default-jre default-jdk csh ksh git python3 python3-dev python2 python2-dev mlocate curl cmake
+
 
 export CPU_CORE=$(nproc)                                             #number of available cores on system
 export CPU_6CORE="6"
