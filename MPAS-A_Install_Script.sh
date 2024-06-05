@@ -43,6 +43,36 @@ echo "##########################################"
 echo "Number of cores being used $CPU_HALF_EVEN"
 echo "##########################################"
 
+
+PROMPTOK=0
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
+
+
+################################### OPCOES #############
+#
+# SE OPCOES =1  IRA EXECUTAR A ESTALACAO DE CADA BIBLIOTECA 0 NÃO INSTALA. 
+
+
+OPCAO=( 1 ####  criar diretorios
+        1 ### fazer downloads 
+        1 ### zlib 
+        1 ### MPICH 
+        1 ##LIBPNG
+		1 ## JASPER
+		1 ## HDF5 FOR NETCDF4 
+		1 ##NETCDF-C
+		1 ##NETCDF-FORTRAN
+		1 ## ARWPOST
+		1 ## OPENGRADS
+		1 ## WRF 4.3 
+		1 ## WPSV4.3 
+		1 ## GEOG INSTALL 
+		) 
+ 
+
+if [ "${OPCAO[0]}" -eq 1 ]; then
 #################################Directory Listing################################
 export HOME="/home/modelos/MODELOS/"  ##======================================================>> MUDAR AQUI
 export DIR=$HOME/MPAS-A/Libs
@@ -53,7 +83,14 @@ mkdir Libs
 mkdir Libs/grib2
 mkdir Libs/NETCDF
 mkdir Libs/MPICH
+fi
 
+
+
+
+
+
+if [ "${OPCAO[1]}" -eq 1 ]; then
 ##############################Downloading Libraries###############################
 cd Downloads
 wget -c https://github.com/madler/zlib/archive/refs/tags/v1.2.12.tar.gz
@@ -63,7 +100,7 @@ wget -c https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.0.tar.g
 wget -c https://github.com/pmodels/mpich/releases/download/v4.0.2/mpich-4.0.2.tar.gz
 wget -c https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
 wget -c https://github.com/NCAR/ParallelIO/archive/refs/tags/pio2_5_9.tar.gz
-
+fi 
 
 
 
@@ -111,6 +148,10 @@ make
 make install
 #make check
 
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
+
 ####################################MPICH#########################################
 cd $HOME/MPAS-A/Downloads
 tar -xvzf mpich-4.0.2.tar.gz
@@ -124,7 +165,9 @@ make install
 
 export PATH=$DIR/MPICH/bin:$PATH
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 
 
 
@@ -153,7 +196,9 @@ make -j $CPU_HALF_EVEN install
 export HDF5=$DIR/grib2
 export LD_LIBRARY_PATH=$DIR/grib2/lib:$LD_LIBRARY_PATH
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 #############################Install Parallel-netCDF##############################
 #Make file created with half of available cpu cores
 #Hard path for MPI added
@@ -176,7 +221,9 @@ export PNETCDF=$DIR/grib2
 
 
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 
 ##############################Install NETCDF C Library############################
 # since using parallel cc compiler cc=MPICC
@@ -200,7 +247,9 @@ export NETCDF=$DIR/NETCDF
 
 
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 ##############################NetCDF fortran library##############################
 # since using parallel cc compiler CC=$MPICC FC=$MPIFC F77=$MPIF77
 #Make file created with half of available cpu cores
@@ -219,7 +268,9 @@ make -j $CPU_HALF_EVEN install
 
 
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 
 #################################PIO##############################################
 cd $HOME/MPAS-A/Downloads
@@ -239,7 +290,9 @@ export PIO=$DIR/grib2
 #make check
 
 
-
+if [ "$PROMPTOK" -eq 1 ]; then
+read -p "pressione para continuar "
+fi
 
 ################################# MPAS-ATMOSPHERE ################################
 # USE_PIO2 over PIO1 due to error, shouldn't affect build
