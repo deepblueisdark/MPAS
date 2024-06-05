@@ -17,9 +17,13 @@ START=$(date +"%s")
 #sudo apt -y install gcc gfortran g++ libtool automake autoconf make m4 default-jre default-jdk csh ksh git python3 python3-dev python2 python2-dev mlocate curl cmake
 
 ############################      CENTOS / ROCKY #####################################
-sudo yum -y update
-sudo yum -y upgrade
-sudo yum -y install gcc gfortran g++ libtool automake autoconf make m4 default-jre default-jdk csh ksh git python3 python3-dev python2 python2-dev mlocate curl cmake
+sudo dnf install epel-release
+sudo dnf -y update
+sudo dnf -y upgrade
+sudo dnf -y install epe
+sudo dnf -y install gcc gfortran g++ libtool automake autoconf make m4
+sudo dnf -y install default-jre default-jdk csh ksh git python3 python3-dev 
+sudo dnf -y install python2 python2-dev mlocate curl cmake 
 
 
 export CPU_CORE=$(nproc)                                             #number of available cores on system
