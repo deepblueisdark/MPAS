@@ -112,6 +112,7 @@ fi
 
 
 inicio=`convert_julian  31 05 2024 | cut -d"." -f1`
+echo $inicio
 let inicio=$inicio+1
 let final=$inicio+5
 echo $inicio
@@ -121,7 +122,7 @@ convert_julian $inicio
 convert_julian $final
 
 
-
+exit
 
 ano0=`convert_julian $inicio | cut -d" " -f1` 
 mes0=`convert_julian $inicio | cut -d" " -f2` 
