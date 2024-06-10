@@ -21,9 +21,14 @@ sudo dnf install epel-release
 sudo dnf -y update
 sudo dnf -y upgrade
 sudo dnf -y install epe
-sudo dnf -y install gcc gfortran g++ libtool automake autoconf make m4
-sudo dnf -y install default-jre default-jdk csh ksh git python3 python3-dev 
-sudo dnf -y install python2 python2-dev mlocate curl cmake 
+sudo dnf -y install gcc gfortran g++ libtool
+sudo dnf -y automake autoconf make m4
+sudo dnf -y install default-jre default-jdk 
+sudo dnf -y csh ksh git 
+sudo dnf -y python3 python3-dev 
+sudo dnf -y install python2 python2-dev 
+sudo dnf -y mlocate curl 
+sudo dnf -y cmake 
 
 
 export CPU_CORE=$(nproc)                                             #number of available cores on system
@@ -97,9 +102,10 @@ wget -c https://github.com/madler/zlib/archive/refs/tags/v1.2.12.tar.gz
 wget -c https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_12_2.tar.gz
 wget -c https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.0.tar.gz
 wget -c https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.6.0.tar.gz
-wget -c https://github.com/pmodels/mpich/releases/download/v4.0.2/mpich-4.0.2.tar.gz
+#wget -c https://github.com/pmodels/mpich/releases/download/v4.0.2/mpich-4.0.2.tar.gz
 wget -c https://parallel-netcdf.github.io/Release/pnetcdf-1.12.3.tar.gz
 wget -c https://github.com/NCAR/ParallelIO/archive/refs/tags/pio2_5_9.tar.gz
+wget -c http://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz
 fi 
 
 
@@ -154,8 +160,8 @@ fi
 
 ####################################MPICH#########################################
 cd $HOME/MPAS-A/Downloads
-tar -xvzf mpich-4.0.2.tar.gz
-cd mpich-4.0.2/
+tar -xvzf mpich-3.4.1.tar.gz
+cd mpich-3.4.1/
 ./configure --prefix=$DIR/MPICH --with-device=ch3 FFLAGS=$fallow_argument FCFLAGS=$fallow_argument
 
 make
