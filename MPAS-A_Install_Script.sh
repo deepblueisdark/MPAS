@@ -22,13 +22,13 @@ sudo dnf -y update
 sudo dnf -y upgrade
 sudo dnf -y install epe
 sudo dnf -y install gcc gfortran g++ libtool
-sudo dnf -y automake autoconf make m4
+sudo dnf -y install automake autoconf make m4
 sudo dnf -y install default-jre default-jdk 
-sudo dnf -y csh ksh git 
-sudo dnf -y python3 python3-dev 
+sudo dnf -y install csh ksh git 
+sudo dnf -y install python3 python3-dev 
 sudo dnf -y install python2 python2-dev 
-sudo dnf -y mlocate curl 
-sudo dnf -y cmake 
+sudo dnf -y install mlocate curl 
+sudo dnf -y install cmake 
 
 
 export CPU_CORE=$(nproc)                                             #number of available cores on system
@@ -49,7 +49,7 @@ echo "Number of cores being used $CPU_HALF_EVEN"
 echo "##########################################"
 
 
-PROMPTOK=0
+PROMPTOK=1
 if [ "$PROMPTOK" -eq 1 ]; then
 read -p "pressione para continuar "
 fi
