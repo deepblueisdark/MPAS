@@ -16,7 +16,7 @@ def download_files(date_str):
     year, month, day = format_date(date_str)
     url = f"https://www.ncei.noaa.gov/data/climate-forecast-system/access/operational-9-month-forecast/6-hourly-ocean/{year}/{year}{month}/{year}{month}{day}/{year}{month}{day}00/"
 
-    output_dir = "arquivos"
+    output_dir = "SST_CFS"
     os.makedirs(output_dir, exist_ok=True)
 
     response = requests.get(url)
@@ -47,5 +47,8 @@ def download_files(date_str):
     print("Download concluído.")
 
 # Exemplo de uso
+#
+#
+#
 data_inicio = '31/05/2024'
 download_files(data_inicio)
